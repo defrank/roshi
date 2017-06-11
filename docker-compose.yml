@@ -1,0 +1,31 @@
+version: "3"
+services:
+    db:
+        image: postgres:9.6-alpine
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - /var/lib/postgresql
+    app:
+        restart: unless-stopped
+        tty: true
+        build: ./app/
+        depends_on:
+            - db
+        links:
+            - db
+        volumes:
+            - ./app:/usr/src/app
+    srv:
+        restart: unless-stopped
+        tty: true
+        build: ./srv/
+        depends_on:
+            - app
+        links:
+            - app
+        volumes:
+            - ./srv/conf.d:/etc/nginx/conf.d
+            - /var/log/nginx
+        ports:
+            - "1337:80"
