@@ -1,7 +1,9 @@
 from flask import Flask
+from flask_mako import MakoTemplates
 
 
 app = Flask(__name__)
+mako = MakoTemplates(app)
 
 
 @app.route('/')
