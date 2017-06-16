@@ -20,4 +20,4 @@ CMD ["gunicorn", \
      "-b", "0.0.0.0:5000", \
      "-w", "4", \
      "-k", "gevent", \
-     "project:app"]
+     "entry:app"]
