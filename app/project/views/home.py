@@ -1,8 +1,8 @@
-from flask import Blueprint
-from flask_mako import render_template
+from flask import Blueprint  # type: ignore
+from flask_mako import render_template  # type: ignore
 
 
-home = Blueprint('home', __name__)
+home = Blueprint('home', __name__)  # type: Blueprint
 
 
 @home.route('/')

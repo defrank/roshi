@@ -2,10 +2,12 @@
 Dynamic and (hopefully) replaceable pluggable extensions.
 
 """
-from flask_mako import MakoTemplates
+from typing import Any, Dict
+
+from flask_mako import MakoTemplates  # type: ignore
 
 
-EXTENSIONS = {
+EXTENSIONS: Dict[str, Any] = {
     'cache': None,
     'csrf':  None,
     'db': None,  # Database.

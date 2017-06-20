@@ -1,4 +1,9 @@
 flask==0.12.2
 flask-mako==0.4
+
+# Production-only.
 gevent==1.2.2
 gunicorn==19.7.1
+
+# Testing and validity.
+mypy==0.511

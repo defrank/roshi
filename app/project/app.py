@@ -5,29 +5,33 @@ Inspired by:
     https://github.com/xen/flask-project-template/blob/master/project/app.py
 
 """
-from flask import Flask
+from typing import Optional, Sequence
+
+from flask import Flask, Blueprint  # type: ignore
 
 from .extensions import EXTENSIONS
 from .views.home import home
 
 
-__all__ = [
+__all__: Sequence[str] = [
     'create_app',
 ]
 
-BLUEPRINTS = [
+BLUEPRINTS: Sequence[Blueprint] = [
     home,
 ]
 
 
-def run(app=None, *, debug=False):
+def run(app: Optional[Flask] = None, *, debug: bool = False) -> None:
     """Development-only version to run the app."""
     if app is None:
         app = create_app()
     app.run(host='0.0.0.0', port=5000, debug=debug)
 
 
-def create_app(config=None, app_name='project', blueprints=None):
+def create_app(config: str = None,
+               app_name: str = 'project',
+               blueprints: Sequence[str] = None) -> Flask:
     """Return the built and configured app."""
 
     app = Flask(app_name, template_folder='templates')
@@ -46,14 +50,14 @@ def create_app(config=None, app_name='project', blueprints=None):
     return app
 
 
-def blueprints_fabrics(app, blueprints):
+def blueprints_fabrics(app: Flask, blueprints: Sequence[Blueprint]):
     """Configure blueprints in views."""
 
     for blueprint in blueprints:
         app.register_blueprint(blueprint)
 
 
-def extensions_fabrics(app):
+def extensions_fabrics(app: Flask):
     """Initialize the extensions with the given app."""
     for ext in EXTENSIONS.values():
         if ext:
