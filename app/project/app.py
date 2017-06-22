@@ -9,7 +9,7 @@ from typing import Optional, Sequence
 
 from flask import Flask, Blueprint  # type: ignore
 
-from .extensions import EXTENSIONS
+from .exts import EXTENSIONS
 from .views.home import home
 
 

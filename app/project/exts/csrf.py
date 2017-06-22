@@ -1,0 +1,5 @@
+"""
+CSRF  plugin.
+
+"""
+csrf = None
