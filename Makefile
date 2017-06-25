@@ -48,7 +48,8 @@ lint: install $(LINTDIRS)
 $(LINTDIRS):
 	@ $(MAKE) -C $(@:lint-%=%) lint
 
-.PHONY: test $(TESTDIRS)
+.PHONY: test tests $(TESTDIRS)
+tests: test
 test: all $(TESTDIRS)
 $(TESTDIRS):
 	@ $(MAKE) -C $(@:test-%=%) test

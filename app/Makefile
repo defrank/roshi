@@ -55,7 +55,8 @@ lint: install
 check: install
 	$(VENV) for checker in $(CHECKERS); do $$checker *.py $(PROJECT); done
 
-.PHONY: test
+.PHONY: test tests
+tests: test
 test: install
 	$(VENV) for tester in $(TESTERS); do $$tester $(PROJECT); done
 
