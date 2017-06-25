@@ -5,7 +5,7 @@ WSGI servers like Gunicorn.
     % gunicorn -b "0.0.0.0:5000" entry:app
 
 """
-from roshi import create_app
+from roshi.factory import create_app
 
 
 app = create_app()
