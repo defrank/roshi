@@ -8,4 +8,4 @@ CSRF  plugin.
 :license: MPL-2.0
 
 """
-csrf = None
+CSRF = None

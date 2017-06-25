@@ -8,4 +8,4 @@ Caching plugin.
 :license: MPL-2.0
 
 """
-cache = None
+CACHE = None

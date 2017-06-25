@@ -12,7 +12,7 @@ from flask import Blueprint  # type: ignore
 from flask_mako import render_template  # type: ignore
 
 
-home = Blueprint('home', __name__)  # type: Blueprint
+home: Blueprint = Blueprint('home', __name__)
 
 
 @home.route('/')

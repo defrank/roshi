@@ -8,4 +8,4 @@ Markdown pages plugin.
 :license: MPL-2.0
 
 """
-pages = None
+PAGES = None

@@ -26,31 +26,35 @@ directly.  Import the needed functionality here to export:
 """
 from typing import Any, Dict
 
-from .cache import cache
-from .csrf import csrf
-from .database import db
-from .login_manager import login_manager
-from .mail import mail
-from .manager import manager
-from .migration import migrate
-from .pages import pages
-from .testing import testing
-from .task_queue import tq
-from .templating import tpl
-from .translation import transl
+from .cache import CACHE
+from .csrf import CSRF
+from .database import DB
+from .login_manager import LOGIN_MANAGER
+from .mail import MAIL
+from .manager import MANAGER
+from .migration import MIGRATE
+from .pages import PAGES
+from .testing import TESTING
+from .task_queue import TQ
+from .templating import TPL
+from .translation import TRANSL
 
 
 EXTENSIONS: Dict[str, Any] = {
-    'cache': cache,
-    'csrf':  csrf,
-    'db': db,
-    'login_manager': login_manager,
-    'mail': mail,
-    'manager': manager,
-    'migrate': migrate,
-    'pages': pages,
-    'testing': testing,
-    'tq': tq,
-    'tpl': tpl,
-    'transl': transl,
+    'cache': CACHE,
+    'csrf':  CSRF,
+    'db': DB,
+    'login_manager': LOGIN_MANAGER,
+    'mail': MAIL,
+    'manager': MANAGER,
+    'migrate': MIGRATE,
+    'pages': PAGES,
+    'testing': TESTING,
+    'tq': TQ,
+    'tpl': TPL,
+    'transl': TRANSL,
 }
+
+
+# Add extensions to module-level.
+globals().update(EXTENSIONS)

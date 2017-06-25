@@ -8,10 +8,12 @@ WSGI servers like Gunicorn.
 :license: MPL-2.0
 
 """
+from flask import Flask  # type: ignore
+
 from roshi.factory import create_app
 
 
-app = create_app()
+app: Flask = create_app()
 
 
 if __name__ == '__main__':

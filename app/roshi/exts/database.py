@@ -8,4 +8,4 @@ Database plugin.
 :license: MPL-2.0
 
 """
-db = None
+DB = None

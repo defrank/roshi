@@ -8,4 +8,4 @@ i18n and l10n translation plugin.
 :license: MPL-2.0
 
 """
-transl = None
+TRANSL = None

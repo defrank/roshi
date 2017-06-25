@@ -8,4 +8,4 @@ Login manager plugin.
 :license: MPL-2.0
 
 """
-login_manager = None
+LOGIN_MANAGER = None

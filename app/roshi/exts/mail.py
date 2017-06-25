@@ -8,4 +8,4 @@ Roshi
 :license: MPL-2.0
 
 """
-mail = None
+MAIL = None

@@ -8,4 +8,4 @@ Database migration plugin.
 :license: MPL-2.0
 
 """
-migrate = None
+MIGRATE = None

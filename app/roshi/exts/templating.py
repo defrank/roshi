@@ -13,4 +13,4 @@ from typing import Optional
 from flask_mako import MakoTemplates  # type: ignore
 
 
-tpl: Optional[MakoTemplates] = MakoTemplates()
+TPL: Optional[MakoTemplates] = MakoTemplates()

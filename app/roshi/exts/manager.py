@@ -8,4 +8,4 @@ Project manager plugin.
 :license: MPL-2.0
 
 """
-manager = None
+MANAGER = None

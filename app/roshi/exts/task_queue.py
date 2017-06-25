@@ -8,4 +8,4 @@ Task queue plugin.
 :license: MPL-2.0
 
 """
-tq = None
+TQ = None

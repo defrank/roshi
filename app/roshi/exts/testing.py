@@ -8,4 +8,4 @@ Testing plugin.
 :license: MPL-2.0
 
 """
-testing = None
+TESTING = None
