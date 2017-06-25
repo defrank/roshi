@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-PROJECT := project
+PROJECT := roshi
 
 PY := python3
 PIP := $(PY) -m pip

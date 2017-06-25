@@ -30,13 +30,13 @@ def run(app: Optional[Flask] = None, *, debug: bool = False) -> None:
 
 
 def create_app(config: str = None,
-               app_name: str = 'project',
+               app_name: str = 'roshi',
                blueprints: Sequence[str] = None) -> Flask:
     """Return the built and configured app."""
 
     app = Flask(app_name, template_folder='templates')
 
-    app.config.from_object('project.config')
+    app.config.from_object('roshi.config')
     app.config.from_pyfile('../secrets.cfg', silent=True)
     if config:
         app.config.from_pyfile(config)
