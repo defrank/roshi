@@ -1,4 +1,4 @@
-SHELL := /bin/bash
+SHELL := /usr/bin/env zsh
 PROJECT := roshi
 
 PY := python3

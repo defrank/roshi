@@ -1,5 +1,5 @@
 # Inspired by: http://www.lackof.org/taggart/hacking/make-example/
-SHELL := /bin/bash
+SHELL := /usr/bin/env zsh
 
 DIRS := $(foreach p,$(wildcard */Makefile),$(shell dirname $(p)))
 BUILDDIRS := $(DIRS:%=build-%)
