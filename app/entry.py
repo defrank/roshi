@@ -12,5 +12,5 @@ app = create_app()
 
 
 if __name__ == '__main__':
-    from project.app import run
+    from project.factory import run
     run(app, debug=False)

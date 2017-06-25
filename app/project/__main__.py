@@ -24,5 +24,5 @@ PROJECT_PATH = join(dirname(sys.modules[__name__].__file__), '..')
 if __name__ == '__main__':
     sys.path.insert(0, PROJECT_PATH)
 
-    from project.app import run
+    from project.factory import run
     run(debug=True)
