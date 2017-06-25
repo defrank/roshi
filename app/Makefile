@@ -49,16 +49,25 @@ check-all: lint check test
 
 .PHONY: lint
 lint: install
-	$(VENV) for linter in $(LINTERS); do $$linter *.py $(PROJECT); done
+	@ $(VENV) set -e; for linter in $(LINTERS); do \
+		print $$linter >&2; \
+		$(PY) -m $$linter *.py $(PROJECT); \
+	done
 
 .PHONY: check
 check: install
-	$(VENV) for checker in $(CHECKERS); do $$checker *.py $(PROJECT); done
+	@ $(VENV) set -e; for checker in $(CHECKERS); do \
+		print $$checker >&2; \
+		$(PY) -m $$checker *.py $(PROJECT); \
+	done
 
 .PHONY: test tests
 tests: test
 test: install
-	$(VENV) for tester in $(TESTERS); do $$tester $(PROJECT); done
+	@ $(VENV) set -e; for tester in $(TESTERS); do \
+		print $$tester >&2; \
+		$(PY) -m $$tester tests; \
+	done
 
 .PHONY: clean
 clean: dist-clean
