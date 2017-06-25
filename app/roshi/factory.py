@@ -1,8 +1,15 @@
 """
+Roshi
+~~~~~
+
 Application structure is defined here.
 
 Inspired by:
     https://github.com/xen/flask-project-template/blob/master/project/app.py
+    https://github.com/pallets/flask/blob/master/examples/flaskr/flaskr/factory.py
+
+:copyright: (c) 2017 Derek M. Frank
+:license: MPL-2.0
 
 """
 from typing import Optional, Sequence

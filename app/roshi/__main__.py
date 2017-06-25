@@ -1,4 +1,7 @@
 """
+Roshi
+~~~~~
+
 Run the `roshi` package as main.  This is a developement only way to
 run this web app especially since it runs in debug mode.
 
@@ -12,6 +15,9 @@ The preferred way to run is using Gunicorn and import the project's app.
 
 We hackily add the project directory to the python path so that we can
 import from it as __main__.
+
+:copyright: (c) 2017 Derek M. Frank
+:license: MPL-2.0
 
 """
 import sys

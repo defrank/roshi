@@ -1,4 +1,9 @@
+# Makefile
+#
 # Inspired by: http://www.lackof.org/taggart/hacking/make-example/
+#
+# :copyright: (c) 2017 Derek M. Frank
+# :license: MPL-2.0
 SHELL := /usr/bin/env zsh
 
 DIRS := $(foreach p,$(wildcard */Makefile),$(shell dirname $(p)))
