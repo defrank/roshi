@@ -4,11 +4,7 @@
 # :license: MPL-2.0
 SHELL := /usr/bin/env zsh
 PROJECT := roshi
-
-PY := python3
-PIP := $(PY) -m pip
-#PYI := ipython3
-PYI := $(PY) -m bpython
+TEST_PROJECT := tests
 
 VENVDIR := venv
 # We could already have venv activated, so check first.
@@ -18,9 +14,13 @@ else
 	VENV := . $(VENVDIR)/bin/activate;
 endif
 
-LINTERS := flake8 pylint
-TESTERS := pytest
-CHECKERS := mypy
+PY := $(VENV) python3
+PIP := $(PY) -m pip
+#PYI := ipython3
+PYI := $(PY) -m bpython
+LINTER := $(PY) -m pylint
+TESTER := $(PY) -m pytest
+CHECKER := $(PY) -m mypy
 
 .PHONY: all
 all: install
@@ -30,7 +30,7 @@ $(VENVDIR)/bin/activate:
 	@ touch $(VENVDIR)/bin/activate
 
 requirements.txt: $(VENVDIR)/bin/activate
-	$(VENV) $(PIP) install -Ur requirements.txt
+	$(PIP) install -Ur requirements.txt
 	@ touch requirements.txt
 
 .PHONY: install
@@ -38,40 +38,33 @@ install: requirements.txt
 
 .PHONY: run
 run: install
-	$(VENV) # $(PY) manage.py runserver -h 0.0.0.0 -d -r
+	# $(PY) manage.py runserver -h 0.0.0.0 -d -r
 
 .PHONY: py
 py: install
-	$(VENV) $(PYI)  # $(PY) manage.py shell
+	$(PYI)  # $(PY) manage.py shell
 
 .PHONY: sh
 sh: install
-	$(VENV) $(SHELL)
+	$(SHELL)
 
 .PHONY: check-all
 check-all: lint check test
 
 .PHONY: lint
 lint: install
-	@ $(VENV) set -e; for linter in $(LINTERS); do \
-		print $$linter >&2; \
-		$(PY) -m $$linter *.py $(PROJECT); \
-	done
+	@ $(LINTER) *.py $(PROJECT) $(TEST_PROJECT)
 
 .PHONY: check
 check: install
-	@ $(VENV) set -e; for checker in $(CHECKERS); do \
-		print $$checker >&2; \
-		$(PY) -m $$checker *.py $(PROJECT); \
-	done
+	@ $(CHECKER) *.py
+	@ $(CHECKER) -p $(PROJECT)
+	@ $(CHECKER) -p $(TEST_PROJECT)
 
 .PHONY: test tests
 tests: test
 test: install
-	@ $(VENV) set -e; for tester in $(TESTERS); do \
-		print $$tester >&2; \
-		$(PY) -m $$tester tests; \
-	done
+	@ $(TESTER) $(TEST_PROJECT)
 
 .PHONY: clean
 clean: dist-clean
