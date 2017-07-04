@@ -14,4 +14,3 @@ def test_basic_unauthenticated(client):
     """
     response = client.get('/')
     assert response.status_code == 200
-    assert b'Welcome home!' in response.data

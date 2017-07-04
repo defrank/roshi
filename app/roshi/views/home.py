@@ -21,4 +21,5 @@ def index() -> str:
     The most important view.  Currently doesn't do anything :(
 
     """
-    return render_template('home/index.mako', message='Welcome home!')
+    return render_template('home/index.mako',
+                           message='Welcome to the dog training app!')
