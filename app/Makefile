@@ -38,6 +38,7 @@ install: requirements.txt
 
 .PHONY: run
 run: install
+	$(PY) entry.py
 	# $(PY) manage.py runserver -h 0.0.0.0 -d -r
 
 .PHONY: py
