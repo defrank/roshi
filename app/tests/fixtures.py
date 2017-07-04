@@ -10,35 +10,48 @@ Inspired by:
 
 """
 from pytest import fixture  # type: ignore
+from selenium import webdriver as _webdriver  # type: ignore
 
 from roshi.factory import create_app
+from .models.page import HomePage
 
 
 @fixture
 def app(request):
-    # pylint: disable=unused-argument
-    """
-    Roshi create application fixture.
+    """Roshi create application fixture."""
+    _app = create_app()
 
-    """
-    application = create_app()
-
-    with application.app_context():
-        yield application
+    with _app.app_context():
+        yield _app
 
 
 @fixture
-def client(request, app):
-    # pylint: disable=redefined-outer-name
+def config(app):
+    """The application config."""
+    return app.config
+
+
+@fixture(params=['Chrome', 'Firefox'])
+def webdriver(request):
     """
-    Roshi create application client fixture.
+    Chrome Selenium webdriver.
+
+    Requirements:
+
+        Chrome - chromedriver
+        Firefox - geckodriver
+
+    Install (macOS):
+
+        brew install chromedriver geckodriver
 
     """
-    client = app.test_client()
+    driver = getattr(_webdriver, request.param)()
+    yield driver
+    driver.quit()
 
-    def teardown():
-        """Client teardown despite exceptions."""
-        pass
-    request.addfinalizer(teardown)
 
-    return client
+@fixture
+def page(live_server, webdriver):
+    """Home page object."""
+    yield HomePage(webdriver, live_server.url('/'))
