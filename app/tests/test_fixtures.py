@@ -5,11 +5,12 @@ Test fixtures.
 :license: MPL-2.0
 
 """
+from flask import Flask  # type: ignore
 
 
 def test_simple_app(app):
     """Verify basic application."""
-    assert app
+    assert isinstance(app, Flask)
 
 
 def test_simple_config(config):
@@ -23,7 +24,7 @@ def test_webdriver_current_url(webdriver):
 
     Chrome: 'data:,'
     Firefox: 'about:blank'
-    
+
     """
     assert webdriver.current_url in ['data:,', 'about:blank']
 
