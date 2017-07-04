@@ -26,12 +26,8 @@ def test_webdriver_current_url(webdriver):
     Firefox: 'about:blank'
 
     """
+    assert webdriver.name in ['chrome', 'firefox']
     assert webdriver.current_url in ['data:,', 'about:blank']
-
-
-def test_webdriver_valid_service(webdriver, services=('chrome', 'firefox')):
-    """Make sure valid service is being used."""
-    assert webdriver.name in services
 
 
 def test_webdriver_get_google(webdriver):
