@@ -1,6 +1,5 @@
-# pylint: disable=redefined-outer-name,unused-argument
 """
-Testing fixtures.
+Selenium fixtures.
 
 Inspired by:
     https://github.com/pallets/flask/blob/master/examples/flaskr/tests/test_flaskr.py
@@ -12,23 +11,10 @@ Inspired by:
 from pytest import fixture  # type: ignore
 from selenium import webdriver as _webdriver  # type: ignore
 
-from roshi.factory import create_app
-from .models.home import HomePage
 
-
-@fixture
-def app(request):
-    """Roshi create application fixture."""
-    _app = create_app()
-
-    with _app.app_context():
-        yield _app
-
-
-@fixture
-def config(app):
-    """The application config."""
-    return app.config
+__all__ = [
+    'webdriver',
+]
 
 
 @fixture(params=['Chrome', 'Firefox'])
@@ -49,9 +35,3 @@ def webdriver(request):
     driver = getattr(_webdriver, request.param)()
     yield driver
     driver.quit()
-
-
-@fixture
-def homepage(webdriver, live_server):
-    """Home page object."""
-    yield HomePage(webdriver, live_server)
