@@ -9,13 +9,13 @@ Test the homepage.
 
 # Sally hears about a new dog training webapp.
 # She goes to the homepage.
-def test_basic(page):
+def test_basic(homepage):
     """Basic testing."""
-    assert page.title == ''
+    assert homepage.title == ''
 
 
 # She finds out a little more about the app.
-def test_content_keywords(page):
+def test_content_keywords(homepage):
     """Useful information on the homepage."""
-    assert 'dog' in page.page_source
-    assert 'training' in page.page_source
+    assert 'dog' in homepage.page_source
+    assert 'training' in homepage.page_source

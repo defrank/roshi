@@ -36,8 +36,8 @@ def test_webdriver_get_google(webdriver):
     assert 'Google' in webdriver.title
 
 
-def test_page_proxies_webdriver(page):
+def test_page_proxies_webdriver(homepage):
     """Verify webdriver proxying."""
-    assert page.title == page.driver.title
-    assert page.current_url == page.driver.current_url
-    assert page.get == page.driver.get
+    assert homepage.title == homepage.driver.title
+    assert homepage.current_url == homepage.driver.current_url
+    assert homepage.get == homepage.driver.get

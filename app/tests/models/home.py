@@ -10,4 +10,4 @@ from .page import BasePage
 
 class HomePage(BasePage):
     """Homepage."""
-    pass
+    path = '/'

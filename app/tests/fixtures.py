@@ -52,6 +52,6 @@ def webdriver(request):
 
 
 @fixture
-def page(live_server, webdriver):
+def homepage(webdriver, live_server):
     """Home page object."""
-    yield HomePage(webdriver, live_server.url('/'))
+    yield HomePage(webdriver, live_server)
