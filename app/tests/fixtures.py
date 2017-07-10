@@ -13,7 +13,7 @@ from pytest import fixture  # type: ignore
 from selenium import webdriver as _webdriver  # type: ignore
 
 from roshi.factory import create_app
-from .models.page import HomePage
+from .models.home import HomePage
 
 
 @fixture
