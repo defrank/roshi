@@ -2,7 +2,7 @@
 Selenium fixtures.
 
 Inspired by:
-    https://github.com/pallets/flask/blob/master/examples/flaskr/tests/test_flaskr.py
+    https://stackoverflow.com/q/40711721/1074659
 
 :copyright: (c) 2017 Derek M. Frank
 :license: MPL-2.0
