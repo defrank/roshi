@@ -5,16 +5,19 @@ Base page object model.
 :license: MPL-2.0
 
 """
-from typing import Optional
+from abc import ABCMeta, abstractmethod
 
 
-class BasePage:
+class BasePage(metaclass=ABCMeta):
     # pylint: disable=too-few-public-methods
     """
     Abstract base page.  Tries to proxy to the given webdriver.
 
     """
-    path: Optional[str] = None
+    @property
+    @abstractmethod
+    def path(self) -> str:
+        """Override the path property as a string."""
 
     def __init__(self, webdriver, live_server):
         self.driver = webdriver
