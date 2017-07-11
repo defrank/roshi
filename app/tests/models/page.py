@@ -1,6 +1,9 @@
 """
 Base page object model.
 
+Inspired by:
+    https://selenium-python.readthedocs.io/page-objects.html
+
 :copyright: (c) 2017 Derek M. Frank
 :license: MPL-2.0
 
