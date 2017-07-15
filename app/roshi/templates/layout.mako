@@ -10,7 +10,7 @@
             <%block name="viewport">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
             </%block>
-            <title><%block name="title"></%block></title>
+            <title><%block name="title">${config['NAME'].title()}</%block></title>
             <%block name="seo">
                 <meta name="description" content="">
                 <meta name="author" content="">
