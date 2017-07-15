@@ -11,7 +11,7 @@ Test the homepage.
 # She goes to the homepage.
 def test_basic(homepage):
     """Basic testing."""
-    assert homepage.title == ''
+    assert homepage.title == 'Petiquette'
 
 
 # She finds out a little more about the app.
